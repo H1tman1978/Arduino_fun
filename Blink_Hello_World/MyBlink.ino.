@@ -10,7 +10,7 @@
   found on https://en.wikipedia.org/wiki/Morse_code. This code is based off the example code that
   comes with the boards.
 
-  1. The length of one unit is 250ms.
+  1. The length of one unit is 100ms.
   2. The length of a dot is one unit.
   3. A dash is three units.
   4. The space between parts of the same letter is one unit. (when the light is off)
@@ -20,6 +20,9 @@
   My repository for this code is found at https://github.com/H1tman1978/Arduino_fun
 */
 
+// Some constants for configuration. Feel free to adjust as needed.
+const int UNIT = 150;
+const int END_OF_MESSAGE = 2000;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -31,35 +34,35 @@ void setup() {
 // the dot function displays a dot on the L LED
 void dot() {
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on for a unit
-  delay(250);
+  delay(UNIT);
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off for a unit
-  delay(250);
+  delay(UNIT);
 } // End of dot function
 
 
 // the dash function displays a dash on the L LED
 void dash() {
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on for 3 units
-  delay(750);
+  delay(UNIT * 3);
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off for a unit
-  delay(250);
+  delay(UNIT);
 } // End of dash function
 
 
 // the delay_letter function adds the appropiate delay for after a letter
 void delay_letter() {
-  delay(500);
+  delay(UNIT * 2);
 }
 
 // the delay_word function adds the appropriate delay for after a word
 void delay_word() {
-  delay(1500);
+  delay(UNIT * 6);
 }
 
 
 // the end_of_message function adds a delay of 3 seconds for the end of message indication
 void end_of_message() {
-  delay(3000);
+  delay(END_OF_MESSAGE); //Value is in milliseconds or in this case, a two second pause.
 }
 
 

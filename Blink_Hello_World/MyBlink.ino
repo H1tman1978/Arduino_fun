@@ -10,7 +10,7 @@
   found on https://en.wikipedia.org/wiki/Morse_code. This code is based off the example code that
   comes with the boards.
 
-  1. The length of one unit is 100ms.
+  1. The length of one unit is 150ms.
   2. The length of a dot is one unit.
   3. A dash is three units.
   4. The space between parts of the same letter is one unit. (when the light is off)
